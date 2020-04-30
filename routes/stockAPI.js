@@ -12,14 +12,7 @@ router.get("/:id", async function(req, res, next) {
   let finalResult;
   try {
     console.log(`Calling the stock-twits API: ${stockTwitsURL}`);
-    let response = await fetch(stockTwitsURL, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      mode: "cors"
-    });
-    console.log(response);
+    let response = await fetch(stockTwitsURL);
     finalResult = await response.json();
   } catch (error) {
     console.error(`${logErrorMessage} ${stockTwitsURL}`);
